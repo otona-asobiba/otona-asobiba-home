@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#faf9f6"><meta name="description" content="何歳になっても、自分の人生を楽しむ。大人の遊び場。"><meta name="version" content="v6-background-scroll-and-clean-navigation"><title>大人の遊び場 | OTONA NO ASOBIBA</title>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#faf9f6"><meta name="description" content="何歳になっても、自分の人生を楽しむ。大人の遊び場。"><meta name="version" content="v7-mobile-immersive-hero"><title>大人の遊び場 | OTONA NO ASOBIBA</title>
 <style>
 :root{--paper:#fff;--ink:#24282b;--muted:#747477;--accent:#9c698b}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid #cd85ac;outline-offset:4px}
-/* The hero sticks at the viewport's top. Following paper panels scroll over it. */
+/* Full-bleed, sticky photographic hero; the following white sheet slides over it. */
 .hero{position:sticky;top:0;height:100svh;min-height:540px;isolation:isolate;display:grid;place-items:center;overflow:hidden;background:#182035;color:#fff;z-index:0}
 .hero::before{content:"";position:absolute;inset:-15px;background-image:url('world.webp');background-size:cover;background-position:center;filter:blur(20px) brightness(.65);z-index:-3}
 .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
@@ -16,7 +16,22 @@
 .intro{max-width:870px;margin:0 auto;text-align:center;padding:clamp(85px,11vw,145px) 24px clamp(90px,10vw,130px)}
 .kicker{color:var(--accent);letter-spacing:.27em;font-size:11px;font-weight:600}.heading{font-weight:500;line-height:1.7;font-size:clamp(25px,3.7vw,42px);letter-spacing:.14em;margin:25px 0}.rule{width:30px;height:1px;background:#bba2b1;margin:0 auto 36px}.intro p{color:#69696c;font-size:clamp(14px,1.7vw,17px);line-height:2.65;letter-spacing:.06em;margin:0 auto;max-width:680px}
 .rooms-area{padding:90px 24px 125px;background:#f8f7f5}.section-header{text-align:center;margin:0 auto 53px}.rooms{max-width:1060px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.room{display:flex;flex-direction:column;min-height:300px;padding:clamp(28px,4vw,49px);border:1px solid #e5e2df;background:#fff;transition:transform .2s,box-shadow .2s}.room:hover{transform:translateY(-4px);box-shadow:0 12px 34px #00000012}.number{color:var(--accent);letter-spacing:.22em;font-size:11px}.room h3{font-size:clamp(23px,2.6vw,29px);letter-spacing:.09em;font-weight:500;margin:27px 0 14px}.room p{color:var(--muted);font-size:14px;line-height:2.2;letter-spacing:.06em;margin:0 0 32px}.entry{margin-top:auto;padding-top:20px;border-top:1px solid #e5e2df;color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.14em;display:flex;justify-content:space-between}.entry span{font-size:23px;font-weight:400}.room.future{background:transparent;border-style:dashed}.room.future .entry{color:#999}footer{text-align:center;background:#f8f7f5;padding:30px 20px 44px;color:#999;font-size:11px;letter-spacing:.15em;line-height:2.2}
-@media(max-width:700px){.hero{min-height:0;height:100svh}.hero-image{object-fit:contain;object-position:center}.hero::before{background-position:center;background-size:cover}.hero-title{padding:24px 12px;width:100%;}.hero-title h1{font-size:clamp(34px,8.8vw,53px);letter-spacing:.075em}.hero-title .english{font-size:10px;letter-spacing:.25em;margin-bottom:18px}.hero-title .message{font-size:12px}.intro{padding:90px 23px 95px}.intro p{line-height:2.5}.rooms-area{padding:78px 20px 92px}.rooms{grid-template-columns:1fr;gap:17px}.room{min-height:260px;padding:30px}.section-header{margin-bottom:34px}}
+/* Phones: natural full-bleed crop, never stretched/letterboxed. */
+@media(max-width:700px){
+  .hero{height:86svh;min-height:0;max-height:860px;overflow:hidden;}
+  .hero::before{display:none;}
+  .hero-image{width:100%;height:100%;object-fit:cover;object-position:49% 50%;}
+  .hero::after{background:linear-gradient(180deg,rgba(6,9,21,.06) 0%,rgba(6,9,21,.10) 26%,rgba(6,9,21,.32) 52%,rgba(6,9,21,.35) 69%,rgba(6,9,21,.18) 100%);}
+  .hero-title{padding:24px 18px;width:100%;max-width:100%;transform:translateY(6%)}
+  .hero-title h1{font-size:clamp(32px,8.3vw,48px);letter-spacing:.045em;white-space:nowrap;line-height:1.3;margin-bottom:13px}
+  .hero-title .english{font-size:10px;letter-spacing:.21em;margin-bottom:20px}
+  .hero-title .message{font-size:clamp(12px,3.3vw,14px);letter-spacing:.06em;line-height:1.85}
+  .intro{padding:82px 23px 90px}.intro p{line-height:2.5}
+  .rooms-area{padding:78px 20px 92px}.rooms{grid-template-columns:1fr;gap:17px}
+  .room{min-height:260px;padding:30px}.section-header{margin-bottom:34px}
+}
+@media(max-width:700px) and (max-height:600px){.hero{height:85svh}.hero-title{transform:none}.hero-title h1{font-size:30px}}
+@media(max-width:700px) and (orientation:landscape){.hero{height:95svh}.hero-title{transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.room{transition:none}}
 </style></head>
 <body><header class="hero" aria-label="大人の遊び場の入口"><img class="hero-image" src="world.webp" alt="夕焼けとピンク色の海に浮かぶ、大人の遊び場の建物" width="1182" height="941" fetchpriority="high"><div class="hero-title"><h1>大人の遊び場</h1><p class="english">OTONA NO ASOBIBA</p><p class="message">何歳になっても、自分の人生を楽しむ。</p></div></header>
@@ -25,4 +40,4 @@
 <a class="room" href="https://otona-collage-room-zeta.vercel.app/"><div class="number">ROOM 01 / CREATE</div><h3>コラージュ部屋</h3><p>切って、重ねて、思いがけないものをつくる。<br>自由な発想で遊ぶ、小さな創作室。</p><div class="entry">部屋に入る <span>↗</span></div></a>
 <a class="room" href="https://otona-art-gallery.vercel.app/"><div class="number">ROOM 02 / EXHIBITION</div><h3>襟足のダンス</h3><p>誰かの作品に出会い、眺めて、楽しむ。<br>ちょっと不思議な、みんなの展示室。</p><div class="entry">展示室に入る <span>↗</span></div></a>
 <div class="room future"><div class="number">ROOM 03 / COMING SOON</div><h3>次の遊びを準備中</h3><p>新しい部屋が、またひとつ。<br>これからの遊びもお楽しみに。</p><div class="entry">COMING SOON <span>＋</span></div></div>
-</div></section></main><footer>OTONA NO ASOBIBA<br>何歳になっても、自分の人生を楽しむ。<br><small>DESIGN UPDATE v6 — BACKGROUND SCROLL</small></footer></body></html>
+</div></section></main><footer>OTONA NO ASOBIBA<br>何歳になっても、自分の人生を楽しむ。<br><small>DESIGN UPDATE v7 — MOBILE FULL BLEED</small></footer></body></html>
